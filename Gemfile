@@ -6,7 +6,18 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'faker'
 
+group :development, :test do
+  gem 'better_errors'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry'
+end
+
+group :test do
+
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
