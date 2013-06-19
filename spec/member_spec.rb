@@ -15,4 +15,8 @@ describe Member do
     member.teams.should include(team)
   end
 
+  it "should validate uniqueness of email" do
+    invalid_member = Member.new(name: "Johnny Bravo", email: member.email)
+    invalid_member.save.should eq false
+  end
 end

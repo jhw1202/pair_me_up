@@ -15,4 +15,8 @@ describe Team do
     team.members.should include(member)
   end
 
+  it "should validate team name uniqueness" do
+    invalid_team = Team.new(name: team.name)
+    invalid_team.save.should eq false
+  end
 end
