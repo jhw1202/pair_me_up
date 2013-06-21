@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Team.create(name: "Team 1")
+Team.create(name: "Team 2")
+
+%w(Elizabeth Sophia Ludwig Vinny Stacey).each do |member|
+  Team.find_by_name("Team 1").members << Member.create(name: member,
+                                                       email: Faker::Internet.email)
+end
+
+%w(Angela Casey William Ludwig).each do |member|
+  Team.find_by_name("Team 2").members << Member.create(name: member,
+                                                       email: Faker::Internet.email)
+end
