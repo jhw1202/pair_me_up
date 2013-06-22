@@ -1,0 +1,17 @@
+<%= button_to "Create a  new team", new_team_path, :method => "get", :class => "btn btn-inverse" %>
+
+<% @teams.each do |team| %>
+
+ <h5><%= team.name %></h5>
+  <ul>
+    <% team.members.each do |member| %>
+    <li>
+      <%= member.name %> (<%= member.email %>)
+      <%= button_to "Delete member", team_member_path(team, member), :method => "delete", :class => "member-delete-button btn btn-danger" %>
+    </li>
+    <% end %>
+  </ul>
+
+  <%= button_to "Add a member to this team", new_team_member_path(team), :class => "btn btn-primary", :method => 'get'%>
+  <%= button_to "Delete this team", team_path(team), :class => "btn btn-danger", :method => "delete" %>
+<% end %>

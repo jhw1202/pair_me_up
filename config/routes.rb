@@ -1,4 +1,11 @@
 Pairmeup::Application.routes.draw do
+
+  root :to => "teams#index"
+
+  resources :teams, :only => [:new, :create, :destroy] do
+    resources :members, :only => [:new, :create, :destroy]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

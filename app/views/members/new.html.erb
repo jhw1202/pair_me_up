@@ -1,0 +1,7 @@
+<%= form_for [@team, @member] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %></BR>
+  <%= f.label :email %>
+  <%= f.email_field :email %></BR>
+  <%= f.submit "Create member", :class=> "btn btn-success" %>
+<% end %>
