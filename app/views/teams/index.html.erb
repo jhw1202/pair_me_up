@@ -3,7 +3,8 @@
 <% @teams.each do |team| %>
 
  <h5><%= team.name %></h5>
-  <ul>
+ <a href='#' class='members-list-expand'>Show members</a>
+  <ul class='members-list'>
     <% team.members.each do |member| %>
     <li>
       <%= member.name %> (<%= member.email %>)

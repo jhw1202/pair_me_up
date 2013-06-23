@@ -3,21 +3,37 @@
 }
 
 li {
-  margin-bottom: 10px;
+  /*display: inline;*/
 }
 
 form.button_to{
   display: inline;
 }
 
-a.about {
+a {
   text-decoration: none;
 }
 
-a.about:hover {
+a:hover {
   color: black;
 }
 
 .description {
   display: none;
+}
+
+.members-list {
+  display:none;
+}
+
+.btn {
+  margin-top: 12px;
+}
+
+.members-list-expand {
+  display: block;
+}
+
+form.button_to {
+  display:inline-block;
 }
