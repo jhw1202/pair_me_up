@@ -1,5 +1,3 @@
-$blacklist = []
-
 class Team < ActiveRecord::Base
   has_many :memberships
   has_many :members, :through => :memberships
@@ -35,12 +33,10 @@ class Team < ActiveRecord::Base
       team_pairs = remove_overlap(team_pairs, pair)
       this_week << pair
     end
-
+    # binding.pry
     self.create_pairs_log(this_week)
 
     blacklist_duplicates(this_week, $blacklist, multiple_team_members)
-
-    p this_week
 
   end
 
