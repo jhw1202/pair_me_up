@@ -14,7 +14,9 @@ Team.create(name: "Team 2")
                                                        email: Faker::Internet.email)
 end
 
-%w(Angela Casey William Ludwig).each do |member|
+%w(Angela Casey William).each do |member|
   Team.find_by_name("Team 2").members << Member.create(name: member,
                                                        email: Faker::Internet.email)
 end
+
+Team.find_by_name("Team 2").members << Member.find_by_name("Ludwig")
