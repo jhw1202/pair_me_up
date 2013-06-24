@@ -14,6 +14,7 @@ gem 'flatui-rails'
 group :development, :test do
   gem 'better_errors'
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'database_cleaner'
