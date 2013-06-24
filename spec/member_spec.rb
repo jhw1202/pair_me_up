@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Member do
 
-  let(:member) {FactoryGirl.create(:member)}
-  let(:team) {FactoryGirl.create(:team)}
+  let(:member) {FactoryGirl.build(:member)}
+  let(:team) {FactoryGirl.build(:team)}
 
 
   it "should respond to teams" do
@@ -17,6 +17,12 @@ describe Member do
 
   it "should validate uniqueness of email" do
     invalid_member = Member.new(name: "Johnny Bravo", email: member.email)
+    member.save
+    invalid_member.save.should eq false
+  end
+
+  it "should validate format of email" do
+    invalid_member = Member.new(name: "Nicolas Cage", email: "iamcage")
     invalid_member.save.should eq false
   end
 end
