@@ -6,8 +6,6 @@ class Team < ActiveRecord::Base
 
   attr_accessible :name
 
-  # before_save :pick_pairs
-
   def members_without_blacklist
     members = self.members.includes(:teams)
     filtered = []
@@ -38,6 +36,7 @@ class Team < ActiveRecord::Base
 
     blacklist_duplicates(this_week, $blacklist, multiple_team_members)
 
+    this_week
   end
 
   def all_possible_pairs(members)
@@ -82,6 +81,7 @@ class Team < ActiveRecord::Base
         blacklist << pair[1]
       end
     end
+    blacklist
   end
 
 end
