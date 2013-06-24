@@ -1,7 +1,7 @@
 desc "Send Emails to team members notifying them of this week's pairs"
 
 task :pick_pairs_send_emails => :environment do
-  if DateTime.now.strftime('%A') == "Saturday" && DateTime.now.strftime("%H") == "00"
+  if DateTime.now.strftime('%A') == "Saturday"
     $blacklist = []
 
     Team.all.shuffle.each do |team|
