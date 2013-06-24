@@ -67,6 +67,15 @@ describe Team do
         team_1.members_without_blacklist.should eq (team_1.members - [duplicated_member])
       end
 
+      it "should update available pairs to choose from to not include person already picked" do
+        team_pairs = team_1.remove_previous_week_pairs(team_1.all_possible_pairs(team_1.members), team_1.id)
+        pair = [team_1.members.first.id, team_1.members.last.id]
+        updated_pairs = team_1.remove_overlap(team_pairs, pair)
+        updated_pairs.each do |p|
+          (p - pair).length.should eq 2
+        end
+      end
+
     context "generating pairs"
 
       it "should generate list of all possible pairs for given team" do
